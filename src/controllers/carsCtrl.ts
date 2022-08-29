@@ -13,4 +13,23 @@ export const registerCar = async (req: Request, res: Response) => {
   return res.status(201).json(newCar);
 };
 
+export const showCars = async (_req: Request, res: Response) => {
+  const listCars = await carServices.read();
+
+  return res.status(200).json(listCars);
+};
+
+export const getCar = async (req: Request, res: Response) => {
+  const carId = req.params.id as string;
+  try {
+    const car = await carServices.readOne(carId);
+    return res.status(200).json(car);
+  } catch (error) {
+    if (error instanceof Error) {
+      return res.status(404)
+        .json({ error: error.message });
+    }
+  }
+};
+
 export const lint = {};

@@ -26,7 +26,7 @@ class CarService implements IModel<ICar> {
 
   public async readOne(_id:string):Promise<ICar> {
     const car = await this._car.readOne(_id);
-    if (!car) throw new Error('not id'); // ErrorTypes.EntityNotFound
+    if (!car) throw new Error('Object not found'); // ErrorTypes.EntityNotFound
     return car;
   }
 
