@@ -1,4 +1,4 @@
-import { ICar } from "../../../interfaces/ICar";
+import { ICar } from "../../interfaces/ICar";
 
 export const mockNewCar: ICar = {
   model: "Ferrari Maranello",
